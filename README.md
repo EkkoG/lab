@@ -8,6 +8,10 @@
 * [安装 Docker Compose](#安装 Docker Compose)
 * [目录结构](#目录结构)
 * [RabbitMQ](#RabbitMQ)
+    * [集群]
+    * [持久化]
+    * [ack]
+    * [多个消费者工作]
 
 
 # 安装 Docker Compose
