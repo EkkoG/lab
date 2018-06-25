@@ -4,9 +4,9 @@ services:
       image: rabbitmq
       container_name: lab_rabbitmq
       restart: always
-      ports:
-        - "5673:5672"
-        - "15673:15672"
+      expose:
+        - "5672"
+        - "15672"
   lab.php.work.net:
       build: ../../../container/centos_php7_fpm
       container_name: lab_php

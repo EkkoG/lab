@@ -7,6 +7,7 @@
 * [简介](#简介)
 * [安装 Docker Compose](#安装 Docker Compose)
 * [目录结构](#目录结构)
+* [RabbitMQ](#RabbitMQ)
 
 
 # 安装 Docker Compose
@@ -31,3 +32,6 @@ $ sudo pip install docker-compose
 └── log           （存放日志文件）
 
 ```
+
+
+# RabbitMQ
