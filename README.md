@@ -39,3 +39,12 @@ $ sudo pip install docker-compose
 
 
 # RabbitMQ
+
+
+## 集群
+
+## 持久化
+
+## ack
+
+## 多个消费者工作
