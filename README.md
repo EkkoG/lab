@@ -8,14 +8,14 @@
 * [安装 Docker Compose](#安装 Docker Compose)
 * [目录结构](#目录结构)
 * [RabbitMQ](#RabbitMQ)
-    * [集群]
-    * [监控]
-    * [单播消息]
-    * [广播消息]
-    * [消息堆积]
-    * [消费重试]
-    * [临时队列]
-    * [消息数量上限]
+    * [集群](#集群)
+    * [监控](#监控)
+    * [单播消息](#单播消息)
+    * [广播消息](#广播消息)
+    * [消息堆积](#消息堆积)
+    * [消费重试](#消费重试)
+    * [临时队列](#临时队列)
+    * [消息数量上限](#消息数量上限)
 
 
 # 安装 Docker Compose
@@ -72,12 +72,12 @@ http://www.rabbitmq.com/documentation.html
 ## 广播消息
 
 ```bash
-./bin/rabbitmq/broadcast_event.sh
+./bin/rabbitmq/broadcast_new_event.sh
 ```
 
 ```bash
-./bin/rabbitmq/event_business1.sh
-./bin/rabbitmq/event_business2.sh
+./bin/rabbitmq/event_subscriber1.sh
+./bin/rabbitmq/event_subscriber2.sh
 ```
 
 ## 消息堆积
@@ -93,6 +93,18 @@ http://www.rabbitmq.com/documentation.html
 
 
 ## 消费重试
+
+
+
+## 临时队列
+
+```bash
+./bin/rabbitmq/new_tmp.sh
+```
+
+```bash
+./bin/rabbitmq/tmp_subscriber.sh
+```
 
 
 
