@@ -16,6 +16,7 @@
     * [消费重试](#消费重试)
     * [临时队列](#临时队列)
     * [消息数量上限](#消息数量上限)
+    * [参考资料](#参考资料)
 
 
 # 安装 Docker Compose
@@ -43,9 +44,6 @@ $ sudo pip install docker-compose
 
 
 # RabbitMQ
-
-http://www.rabbitmq.com/documentation.html
-
 
 ## 集群
 
@@ -106,5 +104,10 @@ http://www.rabbitmq.com/documentation.html
 ./bin/rabbitmq/tmp_subscriber.sh
 ```
 
+## 参考资料
 
+
+* http://www.rabbitmq.com/documentation.html
+
+* https://www.jianshu.com/p/79ca08116d57
 
