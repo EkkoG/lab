@@ -2,11 +2,11 @@
 
 对感兴趣的技术做做实验
 
-# 索引
+# 目录
 
 * [简介](#简介)
 * [安装 Docker Compose](#安装-docker-compose)
-* [目录结构](#目录结构)
+* [文件结构](#文件结构)
 * [RabbitMQ](#RabbitMQ)
     * [集群](#集群)
     * [监控](#监控)
@@ -27,7 +27,7 @@ $ sudo pip install docker-compose
 ```
 
 
-# 目录结构
+# 文件结构
 
 ```
 ./
@@ -111,4 +111,4 @@ $ sudo pip install docker-compose
 
 * https://www.jianshu.com/p/79ca08116d57
 
-[Back to TOC](#索引)
+[Back to TOC](#目录)
