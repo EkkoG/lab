@@ -5,7 +5,7 @@
 # 索引
 
 * [简介](#简介)
-* [安装 Docker Compose](#安装 Docker Compose)
+* [安装 Docker Compose](#安装-Docker-Compose)
 * [目录结构](#目录结构)
 * [RabbitMQ](#RabbitMQ)
     * [集群](#集群)
