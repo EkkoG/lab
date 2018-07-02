@@ -7,16 +7,19 @@ $connection = new AMQPStreamConnection('rabbitmq.work.net', 5672, 'guest', 'gues
 $channel = $connection->channel();
 
 
-$queueName = get_param('queue');
-var_dump($queueName);exit();
+$queues = (array)get_param('queue');
 $exchange = get_param('exchange');
 if (empty($exchange)) {
     $exchange = '';
 }
+$exchangeType = get_param('exchange_type');
+if (empty($exchangeType)) {
+    $exchangeType = 'direct';
+}
 
 $routingKey = get_param('routing_key');
 if (empty($routingKey)) {
-    $routingKey = $queueName;
+    $routingKey = reset($queues);
 }
 
 $passive = boolval(get_param('passive'));
@@ -33,7 +36,19 @@ $msg = new AMQPMessage(
     array('delivery_mode' => AMQPMessage::DELIVERY_MODE_PERSISTENT)
 );
 
-$channel->queue_declare($queueName, $passive, $durable, $exclusive, $autoDelete, $nowait);
+
+
+foreach ($queues as $key => $queueName) {
+    $channel->queue_declare($queueName, $passive, $durable, $exclusive, $autoDelete, $nowait);
+}
+
+if ($exchange) {
+    $channel->exchange_declare($exchange, $exchangeType);
+    foreach ($queues as $key => $queueName) {
+        $channel->queue_bind($queueName, $exchange);
+    }
+}
+
 
 $channel->basic_publish($msg, $exchange, $routingKey);
 

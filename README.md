@@ -10,10 +10,10 @@
 * [RabbitMQ](#RabbitMQ)
     * [集群]
     * [监控]
-    * [订阅处理去单点]
-    * [消息堆积时订阅情况]
+    * [单播消息]
+    * [广播消息]
+    * [消息堆积]
     * [消费重试]
-    * [多业务订阅同事件]
     * [临时队列]
     * [消息数量上限]
 
@@ -57,7 +57,7 @@ http://www.rabbitmq.com/documentation.html
 ```
 
 
-## 订阅处理去单点
+## 单播消息
 
 ```bash
 ./bin/rabbitmq/new_task.sh
@@ -68,8 +68,31 @@ http://www.rabbitmq.com/documentation.html
 ./bin/rabbitmq/worker.sh
 ```
 
+
+## 广播消息
+
+```bash
+./bin/rabbitmq/broadcast_event.sh
+```
+
+```bash
+./bin/rabbitmq/event_business1.sh
+./bin/rabbitmq/event_business2.sh
+```
+
+## 消息堆积
+
+```bash
+./bin/rabbitmq/new_task.sh
+```
+
+```bash
+./bin/rabbitmq/worker_no_ack.sh
+./bin/rabbitmq/worker.sh
+```
+
+
 ## 消费重试
 
 
-## 多业务订阅同事件
 
