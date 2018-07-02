@@ -13,3 +13,13 @@ docker exec -it lab_rabbitmq bash -c "${cmd}"
 cmd="rabbitmqctl list_queues name disk_reads disk_writes"
 echo ${cmd}
 docker exec -it lab_rabbitmq bash -c "${cmd}"
+
+
+cmd="rabbitmqctl list_bindings"
+echo ${cmd}
+docker exec -it lab_rabbitmq bash -c "${cmd}"
+
+
+cmd="rabbitmqctl list_exchanges"
+echo ${cmd}
+docker exec -it lab_rabbitmq bash -c "${cmd}"

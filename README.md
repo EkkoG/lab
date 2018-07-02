@@ -9,9 +9,13 @@
 * [目录结构](#目录结构)
 * [RabbitMQ](#RabbitMQ)
     * [集群]
-    * [持久化]
-    * [ack]
-    * [多个消费者工作]
+    * [监控]
+    * [订阅处理去单点]
+    * [消息堆积时订阅情况]
+    * [消费重试]
+    * [多业务订阅同事件]
+    * [临时队列]
+    * [消息数量上限]
 
 
 # 安装 Docker Compose
@@ -40,11 +44,32 @@ $ sudo pip install docker-compose
 
 # RabbitMQ
 
+http://www.rabbitmq.com/documentation.html
+
 
 ## 集群
 
-## 持久化
 
-## ack
+## 监控
 
-## 多个消费者工作
+```bash
+./bin/rabbitmq/monitor.sh
+```
+
+
+## 订阅处理去单点
+
+```bash
+./bin/rabbitmq/new_task.sh
+```
+
+```bash
+./bin/rabbitmq/worker.sh
+./bin/rabbitmq/worker.sh
+```
+
+## 消费重试
+
+
+## 多业务订阅同事件
+

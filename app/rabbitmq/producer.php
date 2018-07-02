@@ -1,25 +1,43 @@
 <?php
-require_once __DIR__ . '/vendor/autoload.php';
+include __DIR__.'/inc.php';
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 use PhpAmqpLib\Message\AMQPMessage;
 
 $connection = new AMQPStreamConnection('rabbitmq.work.net', 5672, 'guest', 'guest');
 $channel = $connection->channel();
 
-$channel->queue_declare('task_queue', false, true, false, false);
 
-$data = implode(' ', array_slice($argv, 1));
-if (empty($data)) {
-    $data = "Hello World! (".md5(uniqid(rand())).")";
+$queueName = get_param('queue');
+var_dump($queueName);exit();
+$exchange = get_param('exchange');
+if (empty($exchange)) {
+    $exchange = '';
 }
+
+$routingKey = get_param('routing_key');
+if (empty($routingKey)) {
+    $routingKey = $queueName;
+}
+
+$passive = boolval(get_param('passive'));
+$durable = boolval(get_param('durable'));
+$exclusive = boolval(get_param('exclusive'));
+$autoDelete = boolval(get_param('auto_delete'));
+$nowait = boolval(get_param('nowait'));
+
+
+$data = sprintf('Hello World! Order Id (%s), Exchange (%s), Routing Key (%s)', md5(uniqid(rand())), $exchange, $routingKey);
+
 $msg = new AMQPMessage(
     $data,
     array('delivery_mode' => AMQPMessage::DELIVERY_MODE_PERSISTENT)
 );
 
-$channel->basic_publish($msg, '', 'task_queue');
+$channel->queue_declare($queueName, $passive, $durable, $exclusive, $autoDelete, $nowait);
 
-echo ' [x] Sent ', $data, "\n";
+$channel->basic_publish($msg, $exchange, $routingKey);
+
+echo ' [x] 已发送内容：', $data, "\n";
 
 $channel->close();
 $connection->close();
