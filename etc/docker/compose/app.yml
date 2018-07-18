@@ -4,6 +4,25 @@ services:
       image: rabbitmq
       container_name: lab_rabbitmq
       restart: always
+      networks:
+        - lab-work-net
+      environment:
+        RABBITMQ_ERLANG_COOKIE: PTDGWIUEPHBHXWRRWFXX
+        # RABBITMQ_USE_LONGNAME: 1
+        # RABBITMQ_NODENAME: rabbit
+      expose:
+        - "5672"
+        - "15672"
+  lab.rabbitmq2.work.net:
+      image: rabbitmq
+      container_name: lab_rabbitmq2
+      restart: always
+      networks:
+        - lab-work-net
+      environment:
+        RABBITMQ_ERLANG_COOKIE: PTDGWIUEPHBHXWRRWFXX
+        # RABBITMQ_USE_LONGNAME: 1
+        # RABBITMQ_NODENAME: rabbit
       expose:
         - "5672"
         - "15672"
@@ -11,8 +30,8 @@ services:
       build: ../../../container/centos_php7_fpm
       container_name: lab_php
       restart: always
-      links:
-        - lab.rabbitmq.work.net:rabbitmq.work.net
+      networks:
+        - lab-work-net
       ports:
         - "9100:9000"
       volumes:
@@ -26,3 +45,5 @@ services:
       environment:
         COMPOSER_PROCESS_TIMEOUT: 3000
         COMPOSER_MEMORY_LIMIT: -1
+networks:
+  lab-work-net:
