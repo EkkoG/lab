@@ -87,14 +87,14 @@ $ sudo pip install docker-compose
 ./bin/rabbitmq/new_task.sh
 ```
 
-*  消费消息，且不确认，循环执行
+*  消费但不确认消息，循环执行
 
 ```bash
 ./bin/rabbitmq/worker_no_ack.sh
 ```
 
 
-*  消费消息，且确认，循环执行
+*  消费且确认消息，循环执行
 
 ```bash
 ./bin/rabbitmq/worker.sh
