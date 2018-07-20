@@ -16,7 +16,7 @@
     * [消费重试](#消费重试)
     * [临时队列](#临时队列)
     * [消息数量上限](#消息数量上限)
-    * [消息丢失]
+    * [持久化]
     * [参考资料](#参考资料)
 
 
@@ -81,14 +81,25 @@ $ sudo pip install docker-compose
 
 ## 消息堆积
 
+1. 发送消息。循环执行
+
 ```bash
 ./bin/rabbitmq/new_task.sh
 ```
 
+1. 消费消息，且不确认，循环执行
+
 ```bash
 ./bin/rabbitmq/worker_no_ack.sh
+```
+
+
+1. 消费消息，且确认，循环执行
+
+```bash
 ./bin/rabbitmq/worker.sh
 ```
+
 
 
 ## 消费重试
