@@ -81,20 +81,20 @@ $ sudo pip install docker-compose
 
 ## 消息堆积
 
-1. 发送消息。循环执行
+1.  发送消息。循环执行
 
 ```bash
 ./bin/rabbitmq/new_task.sh
 ```
 
-1. 消费消息，且不确认，循环执行
+1.  消费消息，且不确认，循环执行
 
 ```bash
 ./bin/rabbitmq/worker_no_ack.sh
 ```
 
 
-1. 消费消息，且确认，循环执行
+1.  消费消息，且确认，循环执行
 
 ```bash
 ./bin/rabbitmq/worker.sh
