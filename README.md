@@ -6,18 +6,30 @@
 
 * [简介](#简介)
 * [安装 Docker Compose](#安装-docker-compose)
-* [文件结构](#文件结构)
-* [RabbitMQ](#RabbitMQ)
-    * [集群](#集群)
-    * [监控](#监控)
-    * [单播消息](#单播消息)
-    * [广播消息](#广播消息)
-    * [消息堆积](#消息堆积)
-    * [消费重试](#消费重试)
-    * [临时队列](#临时队列)
-    * [消息数量上限](#消息数量上限)
-    * [持久化]
-    * [参考资料](#参考资料)
+* [项目结构](#文件结构)
+
+* 消息队列
+    * Kafka
+    * NSQ
+    * [RabbitMQ](#RabbitMQ)
+
+* 代理服务器
+    * [OpenResty](#OpenResty)
+    * [NGINX](#NGINX)
+    * [NGINX Unit](#NGINX-Unit)
+    * [Envoy](#Envoy)
+
+* Service Mesh
+    * [Istio](#Istio)
+
+* 非关系型数据库
+    * Redis
+
+* 分布式缓存
+    * Memcache
+
+* 数据同步
+    * otter
 
 
 # 安装 Docker Compose
@@ -28,7 +40,7 @@ $ sudo pip install docker-compose
 ```
 
 
-# 文件结构
+# 项目结构
 
 ```
 ./
@@ -45,6 +57,16 @@ $ sudo pip install docker-compose
 
 
 # RabbitMQ
+
+## 消息
+
+```
+├── 发布\订阅模型
+│       ├──广播
+│       └──单播
+
+```
+
 
 ## 集群
 
@@ -140,3 +162,20 @@ $ sudo pip install docker-compose
 * https://www.jianshu.com/p/79ca08116d57
 
 [Back to TOC](#目录)
+
+# OpenResty
+
+# NGINX
+
+# NGINX Unit
+
+
+# Envoy
+
+https://www.envoyproxy.io/
+
+# Istio
+
+https://blog.csdn.net/u012211419/article/details/78963276
+
+http://istio.doczh.cn/docs/concepts/what-is-istio/overview.html
