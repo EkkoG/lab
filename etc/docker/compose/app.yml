@@ -1,11 +1,11 @@
 version: '3'
 services:
-  lab.rabbitmq.work.net:
+  rabbitmq.lab.net:
       image: rabbitmq
       container_name: lab_rabbitmq
       restart: always
       networks:
-        - lab-work-net
+        - lab-net
       environment:
         RABBITMQ_ERLANG_COOKIE: PTDGWIUEPHBHXWRRWFXX
         # RABBITMQ_USE_LONGNAME: 1
@@ -13,12 +13,12 @@ services:
       expose:
         - "5672"
         - "15672"
-  lab.rabbitmq2.work.net:
+  rabbitmq2.lab.net:
       image: rabbitmq
       container_name: lab_rabbitmq2
       restart: always
       networks:
-        - lab-work-net
+        - lab-net
       environment:
         RABBITMQ_ERLANG_COOKIE: PTDGWIUEPHBHXWRRWFXX
         # RABBITMQ_USE_LONGNAME: 1
@@ -26,12 +26,12 @@ services:
       expose:
         - "5672"
         - "15672"
-  lab.php.work.net:
+  php.lab.net:
       build: ../../../container/centos_php7_fpm
       container_name: lab_php
       restart: always
       networks:
-        - lab-work-net
+        - lab-net
       ports:
         - "9100:9000"
       volumes:
@@ -40,10 +40,8 @@ services:
         - ../../../log:/data1/log
         - ../../php/php-fpm.conf:/usr/local/php/etc/php-fpm.conf
         - ../../php/php.ini:/usr/local/php/lib/php.ini
-      extra_hosts:
-        - "php.work.net:127.0.0.1"
       environment:
         COMPOSER_PROCESS_TIMEOUT: 3000
         COMPOSER_MEMORY_LIMIT: -1
 networks:
-  lab-work-net:
+  lab-net:

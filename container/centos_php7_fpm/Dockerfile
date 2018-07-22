@@ -3,7 +3,7 @@ MAINTAINER "Tom" <tom_hejiaxi@163.com>
 
 ENV PHP_VERSION 7.2.6
 ENV TMP_PATH /tmp/uve_core_install
-RUN yum install -y wget
+RUN yum install -y wget tcpdump
 RUN cd /etc/yum.repos.d/; \
     mv CentOS-Base.repo CentOS-Base.repo.backup; \
     wget -O CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo; \

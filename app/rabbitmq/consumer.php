@@ -1,9 +1,6 @@
 <?php
 include __DIR__.'/inc.php';
-
-use PhpAmqpLib\Connection\AMQPStreamConnection;
-
-$connection = new AMQPStreamConnection('rabbitmq.work.net', 5672, 'guest', 'guest');
+$connection = get_conn();
 $channel = $connection->channel();
 
 
