@@ -26,6 +26,14 @@ services:
       expose:
         - "5672"
         - "15672"
+
+  redis.lab.net:
+      image: redis
+      container_name: lab_redis
+      restart: always
+      networks:
+         - lab-net
+
   php.lab.net:
       build: ../../../container/centos_php7_fpm
       container_name: lab_php

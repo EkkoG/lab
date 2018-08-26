@@ -25,8 +25,8 @@
 * API网关
     * kong
 
-* 非关系型数据库
-    * Redis
+* NoSQL
+    * [Redis](./NoSQL-Redis.md)
 
 * 分布式缓存
     * Memcache

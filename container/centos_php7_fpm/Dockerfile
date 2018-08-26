@@ -71,6 +71,8 @@ RUN cd $TMP_PATH; \
     cp lib/libzip.so* /lib64/; \
     /usr/local/php/bin/pecl install zip;
 
+RUN /usr/local/php/bin/pecl install redis;
+
 
 RUN echo "Clean ..."; \
     rm -rf /usr/local/php/etc; \
