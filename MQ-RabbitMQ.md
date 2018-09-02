@@ -139,9 +139,8 @@ rabbitmqctl cluster_status
 ```
 
 ```bash
-rabbitmqctl cluster_status
-```
-```
+$ rabbitmqctl cluster_status
+
 Cluster status of node rabbit@c65e5f03f794 ...
 [{nodes,[{disc,[rabbit@5da9463b7000]},{ram,[rabbit@c65e5f03f794]}]},
  {running_nodes,[rabbit@5da9463b7000,rabbit@c65e5f03f794]},
