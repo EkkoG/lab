@@ -103,14 +103,14 @@ $ ./bin/rabbitmq/direct_consumer.sh
 * 新增节点
 
 ```bash
-rabbitmqctl cluster_status
+$ rabbitmqctl cluster_status
 
 ```
 
 `rabbit@c65e5f03f794` 加入到 `rabbit@5da9463b7000`节点的集群，作为内存节点
 
 ```bash
-rabbitmqctl cluster_status
+$ rabbitmqctl cluster_status
 ```
 
 ```
@@ -123,24 +123,21 @@ Cluster status of node rabbit@910c05e9a904 ...
 ```
 
 ```bash
-rabbitmqctl stop_app
+$ rabbitmqctl stop_app
 ```
 
 ```bash
-rabbitmqctl join_cluster --ram rabbit@5da9463b7000
+$ rabbitmqctl join_cluster --ram rabbit@5da9463b7000
 ```
 ```
 Clustering node rabbit@c65e5f03f794 with rabbit@5da9463b7000
 ```
 
 ```bash
-rabbitmqctl start_app
-rabbitmqctl cluster_status
-```
-
-```bash
+$ rabbitmqctl start_app
 $ rabbitmqctl cluster_status
-
+```
+```
 Cluster status of node rabbit@c65e5f03f794 ...
 [{nodes,[{disc,[rabbit@5da9463b7000]},{ram,[rabbit@c65e5f03f794]}]},
  {running_nodes,[rabbit@5da9463b7000,rabbit@c65e5f03f794]},
