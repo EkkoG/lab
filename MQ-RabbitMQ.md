@@ -102,7 +102,7 @@ $ ./bin/rabbitmq/direct_consumer.sh
 
 * 新增节点
 
-```rabbit@c65e5f03f794``` 加入到 `rabbit@5da9463b7000`节点的集群，作为内存节点
+`rabbit@c65e5f03f794` 加入到  `rabbit@5da9463b7000` 节点所在的集群，作为内存节点
 
 ```bash
 $ rabbitmqctl cluster_status
