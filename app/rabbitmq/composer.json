@@ -1,5 +1,11 @@
 {
     "require": {
         "php-amqplib/php-amqplib": ">=2.6.1"
+    },
+    "repositories": {
+        "php-amqplib/php-amqplib": {
+            "type": "git",
+            "url": "https://github.com/php-amqplib/php-amqplib.git"
+        }
     }
 }

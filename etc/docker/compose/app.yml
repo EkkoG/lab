@@ -10,6 +10,8 @@ services:
         RABBITMQ_ERLANG_COOKIE: PTDGWIUEPHBHXWRRWFXX
         # RABBITMQ_USE_LONGNAME: 1
         # RABBITMQ_NODENAME: rabbit
+      volumes:
+        - ../../../etc/rabbitmq/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
       expose:
         - "5672"
         - "15672"
@@ -23,6 +25,8 @@ services:
         RABBITMQ_ERLANG_COOKIE: PTDGWIUEPHBHXWRRWFXX
         # RABBITMQ_USE_LONGNAME: 1
         # RABBITMQ_NODENAME: rabbit
+      volumes:
+        - ../../../etc/rabbitmq2/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
       expose:
         - "5672"
         - "15672"
@@ -43,6 +47,7 @@ services:
       ports:
         - "9100:9000"
       volumes:
+        - ~/.ssh/id_rsa:/root/.ssh/id_rsa
         - ../../../htdocs:/data1/htdocs
         - ../../../app:/data1/app
         - ../../../log:/data1/log

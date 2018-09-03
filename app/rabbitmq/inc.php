@@ -9,7 +9,11 @@ function get_param($key) {
     return reset($ret);
 }
 
-function get_conn() {
-    $connection = new \PhpAmqpLib\Connection\AMQPStreamConnection('rabbitmq.lab.net', 5672, 'guest', 'guest');
+function get_conn($host='rabbitmq.lab.net') {
+    $connection = new \PhpAmqpLib\Connection\AMQPStreamConnection($host, 5672, 'guest', 'guest');
+    // $connection = \PhpAmqpLib\Connection\AMQPStreamConnection::create_connection([
+    //     ['host' => 'rabbitmq.lab.net', 'port' => 5672, 'user' => 'guest', 'password' => 'guest'],
+    //     ['host' => 'rabbitmq2.lab.net', 'port' => 5672, 'user' => 'guest', 'password' => 'guest'],
+    // ]);
     return $connection;
 }
