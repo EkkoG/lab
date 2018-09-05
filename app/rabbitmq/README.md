@@ -51,15 +51,16 @@
 * 转发模型 
 
     * Direct
+
         * 使用
 
-生产端
+        生产端
 
 ```bash
 ./bin/rabbitmq/direct_producer.sh
 ```
 
-消费端
+        消费端
 
 ```bash
 ./bin/rabbitmq/direct_consumer.sh
