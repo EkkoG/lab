@@ -11,7 +11,7 @@
 * 消息队列
     * Kafka
     * NSQ
-    * [RabbitMQ](./MQ-RabbitMQ.md)
+    * [RabbitMQ](./app/rabbitmq)
 
 * 代理服务器
     * [OpenResty](#OpenResty)
@@ -26,7 +26,7 @@
     * kong
 
 * NoSQL
-    * [Redis](./app/redis/README.md)
+    * [Redis](./app/redis)
 
 * 分布式缓存
     * Memcache
