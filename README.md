@@ -26,7 +26,7 @@
     * kong
 
 * NoSQL
-    * [Redis](./NoSQL-Redis.md)
+    * [Redis](./redis/README.md)
 
 * 分布式缓存
     * Memcache
