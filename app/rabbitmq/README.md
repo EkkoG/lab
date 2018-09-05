@@ -63,8 +63,10 @@
 ./bin/rabbitmq/direct_consumer.sh
 ```
 
-* 转发模型 > Direct >  设计
+* 转发模型 
 
+    * Direct
+        * 设计
 
 * 转发模型 > Direct >  生产 > 新增队列，没消费端会怎样？
 
