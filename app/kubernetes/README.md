@@ -114,3 +114,21 @@ abcabc111111
 ```
 
 
+* service根据`.spec.selector`匹配pods作为路由目标，创建多个deployment结果跟直接创建多个pods是一样的
+
+```bash
+$ kubectl create -f etc/kubernetes/lab-hello-multi-deployment.yaml
+deployment.apps/lab-hello-deployment created
+deployment.apps/lab-hello-deployment2 created
+Error from server (AlreadyExists): error when creating "etc/kubernetes/lab-hello-multi-deployment.yaml": services "lab-hello-service" already exists
+
+$ curl -x 192.168.64.5:30282 'http://lab.tomhjx.com/aaaa'
+abcabc111111
+
+$ curl -x 192.168.64.5:30282 'http://lab.tomhjx.com/aaaa'
+111122222
+
+```
+
+
+

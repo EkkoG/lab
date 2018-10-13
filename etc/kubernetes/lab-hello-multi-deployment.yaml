@@ -42,7 +42,7 @@ spec:
 apiVersion: apps/v1 
 kind: Deployment
 metadata:
-  name: lab-hello-deployment
+  name: lab-hello-deployment2
   namespace: lab
 spec:
   selector:
