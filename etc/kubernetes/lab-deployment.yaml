@@ -1,0 +1,32 @@
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: lab-deployment
+  namespace: lab
+spec:
+  strategy:
+    rollingUpdate:
+      maxSurge: "50%"
+  selector:
+    matchLabels:
+      app: lab-hello
+  replicas: 3 # tells deployment to run 2 pods matching the template
+  template: # create pods using pod definition in this template
+    metadata:
+      # unlike pod-nginx.yaml, the name is not included in the meta data as a unique name is
+      # generated from the deployment name
+      labels:
+        app: lab-hello
+    spec:
+      containers:
+      - name: lab-hello-openresty
+        image: lab-k8s-openresty:v1
+        resources:
+          limits:
+            memory: "200Mi"
+            cpu: "1"
+          requests:
+            memory: "100Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80

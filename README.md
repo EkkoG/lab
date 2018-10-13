@@ -42,10 +42,17 @@
 
 * 容器
     * docker
-    * Kubernetes
+    * [Kubernetes](./app/kubernetes)
 
 * 分布式搜索引擎
     * Elasticsearch
+
+* 日志系统
+
+   * LogDevice
+   * syslog
+   * rsyslog
+   * syslog ng
 
 
 # 安装 Docker Compose
