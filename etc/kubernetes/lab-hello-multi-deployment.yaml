@@ -37,7 +37,48 @@ spec:
       - name: nginx-config
         hostPath:
           path: /Users/tom/Repository/lab/etc/nginx/conf.d
-          
+---
+
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: lab-hello-deployment
+  namespace: lab
+spec:
+  selector:
+    matchLabels:
+      app: lab-hello
+  strategy:
+    rollingUpdate:
+      maxSurge: "50%"
+  replicas: 2 # tells deployment to run 2 pods matching the template
+  template: # create pods using pod definition in this template
+    metadata:
+      # unlike pod-nginx.yaml, the name is not included in the meta data as a unique name is
+      # generated from the deployment name
+      labels:
+        app: lab-hello
+    spec:
+      containers:
+      - name: lab-hello-openresty
+        image: lab-k8s-openresty:v1
+        # resources:
+        #   limits:
+        #     memory: "200Mi"
+        #     cpu: "1"
+        #   requests:
+        #     memory: "100Mi"
+        #     cpu: "500m"
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - mountPath: /etc/nginx/conf.d
+          name: nginx-config
+      volumes:
+      - name: nginx-config
+        hostPath:
+          path: /Users/tom/Repository/lab/etc/nginx/conf2.d
+
 ---
 
 apiVersion: v1
