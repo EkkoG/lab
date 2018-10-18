@@ -22,8 +22,18 @@ kubectl config use-context minikube
 
 https://github.com/kubernetes/minikube/blob/master/docs/drivers.md#hyperkit-driver
 
+* 通过minikube创建的k8s集群，挂载本地目录
 
-* 不同namespace，不互通
+```bash
+
+$ nohup minikube mount ~/Repository:/mount/repo &
+
+
+
+```
+
+
+* 不同namespace，常规方式访问不互通
 
 ```bash
 $ eval $(minikube docker-env)
@@ -132,4 +142,38 @@ $ curl -x 192.168.64.5:30282 'http://lab.tomhjx.com/aaaa'
 ```
 
 
+* 外网通过80端口访问集群
 
+1） 使用云服务
+
+```
+
+[云厂商负载均衡器]
+       | 
+       V
+[service (type=LoadBalancer) ]
+
+```
+
+2 ) 自建
+
+```
+[ingress]
+    | 
+    |
+    v
+[service]
+
+```
+
+
+
+* chown: changing ownership of 'test': Input/output error
+
+```bash
+
+nohup minikube mount ~/test:/test --9p-version=9p2000.L >> /dev/null 2>&1 &
+
+```
+
+https://github.com/kubernetes/minikube/issues/2290

@@ -3,6 +3,8 @@ kind: Deployment
 metadata:
   name: lab-hello-deployment
   namespace: lab
+  labels:
+    app: lab-hello
 spec:
   selector:
     matchLabels:
@@ -44,6 +46,8 @@ kind: Deployment
 metadata:
   name: lab-hello-deployment2
   namespace: lab
+  labels:
+    app: lab-hello
 spec:
   selector:
     matchLabels:

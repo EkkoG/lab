@@ -36,7 +36,8 @@ spec:
       volumes:
       - name: nginx-config
         hostPath:
-          path: /Users/tom/Repository/lab/etc/nginx/conf.d
+          # nohup minikube mount ~/Repository:/mount/repo &
+          path: /mount/repo/lab/etc/nginx/conf.d
           
 ---
 
