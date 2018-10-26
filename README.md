@@ -13,11 +13,16 @@
     * NSQ
     * [RabbitMQ](./app/rabbitmq)
 
-* 代理服务器
+* 代理
     * [OpenResty](#OpenResty)
     * [NGINX](#NGINX)
     * [NGINX Unit](#NGINX-Unit)
     * [Envoy](#Envoy)
+    * [F5](#F5)
+
+* 服务注册/发现
+   
+    * [Eureka](#Eureka)
 
 * Service Mesh
     * [Istio](#Istio)
@@ -54,6 +59,14 @@
    * rsyslog
    * syslog ng
 
+* 分布式服务框架
+
+   * Dubbo
+   * Spring Cloud
+
+* 扩展阅读
+   * [进程/线程/协程](#进程/线程/协程)
+   * [微服务的核心技术问题](#微服务的核心技术问题)
 
 # 安装 Docker Compose
 
@@ -86,13 +99,28 @@ $ sudo pip install docker-compose
 
 # NGINX Unit
 
-
 # Envoy
 
 https://www.envoyproxy.io/
+
+# F5
+
+https://www.f5.com/
+https://f5.com/zh
 
 # Istio
 
 https://blog.csdn.net/u012211419/article/details/78963276
 
 http://istio.doczh.cn/docs/concepts/what-is-istio/overview.html
+
+
+# 进程/线程/协程
+
+https://www.cnblogs.com/lxmhhy/p/6041001.html
+
+https://www.chiark.greenend.org.uk/~sgtatham/coroutines.html
+
+# 微服务的核心技术问题
+
+https://mp.weixin.qq.com/s/-tyjB6QCPmEAbSXjUaz_bg
