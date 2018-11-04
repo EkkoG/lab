@@ -1,6 +1,15 @@
 # kubernetes
 
-* 在mac上运行minikube
+# 目录
+
+* 包管理
+    * Helm
+
+* [常见问题](#常见问题)
+
+# 常见问题
+
+1. 在mac上运行minikube
 
 ```bash
 
@@ -22,7 +31,7 @@ kubectl config use-context minikube
 
 https://github.com/kubernetes/minikube/blob/master/docs/drivers.md#hyperkit-driver
 
-* 通过minikube创建的k8s集群，挂载本地目录
+1. 通过minikube创建的k8s集群，挂载本地目录
 
 ```bash
 
@@ -33,7 +42,7 @@ $ nohup minikube mount ~/Repository:/mount/repo &
 ```
 
 
-* 不同namespace，常规方式访问不互通
+1. 不同namespace，常规方式访问不互通
 
 ```bash
 $ eval $(minikube docker-env)
@@ -63,7 +72,7 @@ curl: (7) Failed to connect to 192.168.64.5 port 31467: Connection refused
 
 ```
 
-* 动态变更pods，services可以自动发现
+1. 动态变更pods，services可以自动发现
 
 
 ```bash
@@ -83,7 +92,7 @@ abcabc111111
 
 ```
 
-* service根据`.spec.selector`匹配pods作为路由目标
+1. service根据`.spec.selector`匹配pods作为路由目标
 
 ```bash
 
@@ -125,7 +134,7 @@ abcabc111111
 ```
 
 
-* service根据`.spec.selector`匹配pods作为路由目标，创建多个deployment结果跟直接创建多个pods是一样的
+1. service根据`.spec.selector`匹配pods作为路由目标，创建多个deployment结果跟直接创建多个pods是一样的
 
 ```bash
 $ kubectl create -f etc/kubernetes/lab-hello-multi-deployment.yaml

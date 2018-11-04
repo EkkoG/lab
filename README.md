@@ -13,6 +13,10 @@
     * NSQ
     * [RabbitMQ](./app/rabbitmq)
 
+* 数据库
+
+    * mysql
+
 * 代理
     * [OpenResty](#OpenResty)
     * [NGINX](#NGINX)
@@ -47,6 +51,8 @@
 
 * 容器
     * docker
+
+* 容器化管理
     * [Kubernetes](./app/kubernetes)
 
 * 分布式搜索引擎
@@ -91,6 +97,10 @@ $ sudo pip install docker-compose
 
 ```
 
+
+# mysql
+
+https://yq.aliyun.com/articles/225137?spm=a2c4e.11153940.blogcont464186.13.7ff61b0c2X5h0z
 
 
 # OpenResty
