@@ -112,7 +112,6 @@ ENV PATH=$PATH:/usr/local/openresty/luajit/bin:/usr/local/openresty/nginx/sbin:/
 RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && mkdir -p /tmp/nginx/cache
 
-
 #####
 COPY etc/nginx.conf /usr/local/openresty/nginx/conf/nginx.conf
 COPY etc/conf.d/lab.tomhjx.com.conf /etc/nginx/conf.d/lab.tomhjx.com.conf
