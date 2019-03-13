@@ -71,8 +71,10 @@
    * Spring Cloud
 
 * 前端架构
-
    * [Flux](http://www.ruanyifeng.com/blog/2016/01/flux.html)
+
+* 前端应用
+   * [webassembly](https://www.ibm.com/developerworks/cn/web/wa-lo-webassembly-status-and-reality/index.html)
 
 
 * 扩展阅读
