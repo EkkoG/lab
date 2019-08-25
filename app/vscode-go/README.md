@@ -34,5 +34,9 @@ docker-compose -f ./docker-compose.yml up -d
 
 * 进入容器后，在容器内部安装Visual Studio Code的Go插件
 
-* ![](https://tva1.sinaimg.cn/large/006y8mN6gy1g6c7loc93yj31c00u0als.jpg)
+![](https://tva1.sinaimg.cn/large/006y8mN6gy1g6c7loc93yj31c00u0als.jpg)
 
+# TODO
+
+* [ ] 还不太方便，要尝试下把vs的插件预安装才行，现在是创建容器之后，还需要手动安装一下vs的插件
+* [ ] 缺少较便捷的包管理的方案，目前是通过go mod管理
