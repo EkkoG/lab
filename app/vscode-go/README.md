@@ -31,3 +31,8 @@ docker-compose -f ./docker-compose.yml up -d
 ![Remote - Containers](https://tva1.sinaimg.cn/large/006y8mN6gy1g6c7atnt9kj31c00u00x6.jpg)
 
 ![Remote - Containers](https://tva1.sinaimg.cn/large/006y8mN6gy1g6c7cr6jg5j31c00u0dnn.jpg)
+
+* 进入容器后，在容器内部安装Visual Studio Code的Go插件
+
+* ![](https://tva1.sinaimg.cn/large/006y8mN6gy1g6c7loc93yj31c00u0als.jpg)
+
