@@ -1,0 +1,35 @@
+version: '3.5'
+services:
+  lvs:
+      build: ./centos_lvs
+      restart: always
+      privileged: true
+      container_name: lvs
+      command: ["sh", "-c", "/mybin/addip.sh eth0 172.17.100.100 && /mybin/start.sh"]
+      cap_add:
+        - ALL
+      networks:
+        lab-com:
+  lvs.rip1:
+      build: ./centos_openresty
+      restart: always
+      privileged: true
+      container_name: lvs-rip1
+      command: ["sh", "-c", "/mybin/addip.sh lo 172.17.100.100 && /mybin/start.sh"]
+      cap_add:
+        - ALL
+      networks:
+        lab-com:
+  lvs.rip2:
+      build: ./centos_openresty
+      restart: always
+      privileged: true
+      container_name: lvs-rip2
+      command: ["sh", "-c", "/mybin/addip.sh lo 172.17.100.100 && /mybin/start.sh"]
+      cap_add:
+        - ALL
+      networks:
+        lab-com:
+networks:
+  lab-com:
+    name: lab-com

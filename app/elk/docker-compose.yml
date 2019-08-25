@@ -1,0 +1,80 @@
+version: '3.5'
+services:
+  es:
+      image: elastic/elasticsearch:7.1.1
+      restart: always
+      privileged: true
+      container_name: es
+      user: 1000:1000
+      environment:
+        discovery.type: single-node
+      cap_add:
+        - ALL
+      networks:
+        lab-com:
+  kibana:
+      image: elastic/kibana:7.1.1
+      restart: always
+      privileged: true
+      container_name: kibana
+      ports:
+        - "5601:5601"
+      volumes:
+        - ./etc/kibana.yml:/usr/share/kibana/config/kibana.yml
+      cap_add:
+        - ALL
+      networks:
+        lab-com:
+  logstash:
+      image: elastic/logstash:7.1.1
+      restart: always
+      privileged: true
+      container_name: logstash
+      volumes:
+        - ./etc/logstash.yml:/usr/share/logstash/config/logstash.yml
+      cap_add:
+        - ALL
+      networks:
+        lab-com:
+  apm:
+      image: elastic/apm-server:7.1.1
+      restart: always
+      privileged: true
+      container_name: apm
+      volumes:
+        - ./etc/apm-server.yml:/usr/share/apm-server/apm-server.yml
+      cap_add:
+        - ALL
+      networks:
+        lab-com:
+  elk-fpm:
+      build: ./php/build
+      restart: always
+      privileged: true
+      container_name: elk-fpm
+      volumes:
+        - ~/Repos/github.com/tomhjx/lab:/app
+      cap_add:
+        - ALL
+      networks:
+        lab-com:
+  elk-go:
+      build: ./go/build
+      restart: always
+      privileged: true
+      container_name: elk-go
+      environment:
+        GO111MODULE: "on"
+        GOPROXY: "https://goproxy.io"
+        ELASTIC_APM_SERVER_URL: "http://apm:8200"
+        # ELASTIC_APM_SERVER_URL: "http://172.27.35.4:8888"
+      volumes:
+        - ~/Work/go:/app
+        - ./go/src:/app/src
+      cap_add:
+        - ALL
+      networks:
+        lab-com:
+networks:
+  lab-com:
+    name: lab-com

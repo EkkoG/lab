@@ -1,0 +1,20 @@
+version: '3.5'
+services:
+  go-gin:
+      build: ./build
+      restart: always
+      privileged: true
+      container_name: go-gin
+      environment:
+        GO111MODULE: "on"
+        GOPROXY: "https://goproxy.io"
+        CGO_ENABLED: 0
+      volumes:
+        - ./src:/src
+      cap_add:
+        - ALL
+      networks:
+        lab-com:
+networks:
+  lab-com:
+    name: lab-com

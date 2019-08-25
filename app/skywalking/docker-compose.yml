@@ -1,0 +1,52 @@
+version: '3.5'
+services:
+  skywalking-ui:
+      image: apache/skywalking-ui:6.1.0
+      restart: always
+      privileged: true
+      container_name: skywalking-ui
+      ports:
+        - "8081:8080"
+      environment:
+        SW_OAP_ADDRESS: "skywalking-oap:12800"
+      cap_add:
+        - ALL
+      networks:
+        lab-com:
+  skywalking-oap:
+      image: apache/skywalking-oap-server:6.1.0
+      restart: always
+      privileged: true
+      container_name: skywalking-oap
+      environment:
+        SW_STORAGE_ES_CLUSTER_NODES: "skywalking-es:9200"
+        SW_STORAGE: "elasticsearch"
+      cap_add:
+        - ALL
+      networks:
+        lab-com:
+          aliases:
+            - apm.api
+  skywalking-es:
+      image: elasticsearch
+      restart: always
+      privileged: true
+      container_name: skywalking-es
+      cap_add:
+        - ALL
+      networks:
+        lab-com:
+  skywalking-fpm:
+      build: ./php-build
+      restart: always
+      privileged: true
+      container_name: skywalking-fpm
+      volumes:
+        - ~/Repos/github.com/tomhjx/lab:/app
+      cap_add:
+        - ALL
+      networks:
+        lab-com:
+networks:
+  lab-com:
+    name: lab-com

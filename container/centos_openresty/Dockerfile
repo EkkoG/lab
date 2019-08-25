@@ -105,6 +105,8 @@ RUN yum install -y \
     && ln -sf /dev/stdout /usr/local/openresty/nginx/logs/access.log \
     && ln -sf /dev/stderr /usr/local/openresty/nginx/logs/error.log
 
+RUN yum install -y iproute
+
 # Add additional binaries into PATH for convenience
 ENV PATH=$PATH:/usr/local/openresty/luajit/bin:/usr/local/openresty/nginx/sbin:/usr/local/openresty/bin
 
@@ -113,8 +115,9 @@ RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && mkdir -p /tmp/nginx/cache
 
 #####
+COPY mybin /mybin
 COPY etc/nginx.conf /usr/local/openresty/nginx/conf/nginx.conf
-COPY etc/conf.d/lab.tomhjx.com.conf /etc/nginx/conf.d/lab.tomhjx.com.conf
-RUN mkdir -p /data1/log/nginx
+COPY etc/conf.d /etc/nginx/conf.d
+RUN chmod +x -R /mybin
 
-CMD ["/usr/local/openresty/nginx/sbin/nginx", "-g", "daemon off;"]
+CMD ["/mybin/start.sh"]
