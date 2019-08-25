@@ -28,5 +28,5 @@ docker-compose -f ./docker-compose.yml up -d
 
 * 通过Visual Studio Code 
 
-![Remote - Containers](https://tva1.sinaimg.cn/large/006y8mN6gy1g6c5q4ggm3j31c00u0wiy.jpg)
+![Remote - Containers](https://tva1.sinaimg.cn/large/006y8mN6gy1g6c7atnt9kj31c00u00x6.jpg)
 
