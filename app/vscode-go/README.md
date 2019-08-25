@@ -1,0 +1,32 @@
+# 使用Visual Studio Code配合go开发
+
+* 安装 [Visual Studio Code](https://code.visualstudio.com)
+
+* 安装 [Visual Studio Code Remote - Containers
+ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+
+* 安装docker
+
+https://store.docker.com/editions/community/docker-ce-desktop-mac
+
+* 安装docker compose
+
+```bash
+
+$ curl -sSL https://get.docker.com/ | sh
+$ sudo pip install docker-compose
+
+```
+
+* 构建golang环境
+
+```bash
+
+docker-compose -f ./docker-compose.yml up -d
+
+```
+
+* 通过Visual Studio Code 
+
+![Remote - Containers](https://tva1.sinaimg.cn/large/006y8mN6gy1g6c5q4ggm3j31c00u0wiy.jpg)
+
