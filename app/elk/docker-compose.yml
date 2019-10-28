@@ -25,6 +25,20 @@ services:
         - ALL
       networks:
         lab-com:
+  rsyslog-server:
+      image: rsyslog/syslog_appliance_alpine
+      restart: always
+      privileged: true
+      container_name: rsyslog-server
+      volumes:
+        - ./etc/logstash.yml:/usr/share/logstash/config/logstash.yml
+        - ./etc/rsyslog-server/rsyslog.conf:/config/rsyslog.conf
+      cap_add:
+        - ALL
+      environment:
+        RSYSLOG_CONF: "/config/rsyslog.conf"
+      networks:
+        lab-com:
   logstash:
       image: elastic/logstash:7.1.1
       restart: always

@@ -61,7 +61,7 @@ path.data: /var/lib/logstash
 #
 # Where to fetch the pipeline configuration for the main pipeline
 #
-#path.config: /etc/logstash/conf.d
+path.config: /etc/logstash/conf.d
 #
 # Pipeline configuration string for the main pipeline
 #
